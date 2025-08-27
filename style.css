@@ -1,0 +1,66 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100%;
+  background-color: var(--lightBlue);
+  /* This is where you would include fonts */
+}
+
+/* Make sure all decendants inherit border-box */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+     background-color: aquamarine;
+}
+
+h1 {
+    text-align: center;
+
+}
+
+#userGallery {
+    display: grid;
+    gap: 10px;
+    margin-top: 20px;
+
+
+}
+
+.userCard {
+
+    border: 1px solid green;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+
+}
+
+button {
+    border: 1px solid green;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+
+
+    /* cursor: pointer;
+    margin-top: 6px;
+    padding: 5px 11px;                                                                           */
+}
+
+.Container {
+     display: flex;
+    justify-content: center;  
+    gap: 10px;              
+    margin-top: 20px;   
+
+}
