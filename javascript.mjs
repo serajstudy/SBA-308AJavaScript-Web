@@ -1,10 +1,10 @@
 // select Dom Elements
 
-const searchInput = document.getElementById(`searchBtn`);
+const searchInput = document.getElementById(`searchInput`);
 const searchBtn = document.getElementById(`searchBtn`);
 const userGallery = document.getElementById(`userGallery`);
 
-let allUser = [];
+let allUsers = [];
 
 // Fetch users from JSONPlaceholder API
 
@@ -14,10 +14,10 @@ async function fetchUser() {
         let response = await fetch (`https://jsonplaceholder.typicode.com/users`);
         if (!response.ok) throw new Error(`Network error`);
         let data = await response.json();
-        allUser = data;
+        allUsers = data;
         renderUsers(allUsers);
  
-    } catch (error) {console.error(`API Fetch Error:`, err);
+    } catch (err) {console.error(`API Fetch Error:`, err);
         
     }
     
@@ -50,14 +50,20 @@ async function fetchUser() {
     // Search users by name
 
     searchBtn.addEventListener(`click`,()=>{
-        let query = searchInput.ariaValueMax.toLowerCase();
+        let query = searchInput.value.toLowerCase();
         let filtered = allUsers.filter(u =>u.name.toLowerCase().includes(query));
+        renderUsers(filtered);
 
 
     });
 
+    // Initial Load
 
-
-
+    fetchUser();
     
+
+
+
+
+
 
