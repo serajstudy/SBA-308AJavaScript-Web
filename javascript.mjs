@@ -25,16 +25,39 @@ async function fetchUser() {
 
 //  Render users in DOM
 
-function renderUsers(users){
-    userGallery.innerHTML = ``;
-    users.forEach(user=>{
-        let card = document.createElement(`div`);
-        card.classList.add(`userCard`);
-        card.innerHTML = `
-        
-        
-        `
-    })
+    function renderUsers(users){
+        userGallery.innerHTML = ``;
+        users.forEach(user=>{
+            let card = document.createElement(`div`);
+            card.classList.add(`userCard`);
+            card.innerHTML = `
+
+            <h3> ${user.name}</h3>
+            <p><strong>Email:</strong>${user.email} </p>
+            <p><strong>City:</strong>${user.address.city} </p>
+            <p><strong>Company:</strong>${user.company.name} </p> `;
+
+            userGallery.appendChild(card);
+
+            
+            
+            
+        })
 
 
-}
+    }
+
+    // Search users by name
+
+    searchBtn.addEventListener(`click`,()=>{
+        let query = searchInput.ariaValueMax.toLowerCase();
+        let filtered = allUsers.filter(u =>u.name.toLowerCase().includes(query));
+
+
+    });
+
+
+
+
+    
+
